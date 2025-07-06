@@ -55,7 +55,7 @@ export default function ReminderButton() {
       <Text style={{ marginBottom: 10 }}>⏰ Current Reminder: {formattedTime}</Text>
 
       <TouchableOpacity style={styles.button} onPress={handleSetReminderPress}>
-        <Text style={styles.buttonText}>Set Daily Reminder</Text>
+        <Text style={styles.buttonText}>Set New Reminder</Text>
       </TouchableOpacity>
 
       {showPicker && (
