@@ -1,0 +1,2 @@
+export const TIME_STORAGE_KEY = 'REMINDER_TIME';
+export const STORAGE_KEY = 'TODO_STORE';

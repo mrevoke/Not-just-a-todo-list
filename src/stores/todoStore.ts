@@ -1,29 +1,24 @@
 import { makeAutoObservable, runInAction } from 'mobx';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TodoItem } from '../types/todo';
-
-const STORAGE_KEY = 'TODO_STORE';
+import { loadTodosFromStorage, saveTodosToStorage } from '../utils/storage/todoStorage';
 
 class TodoStore {
   todos: TodoItem[] = [];
 
   constructor() {
     makeAutoObservable(this);
-    this.loadTodos(); // Load from AsyncStorage on startup
+    this.loadTodos();
   }
 
   async loadTodos() {
-    const stored = await AsyncStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      runInAction(() => {
-        this.todos = parsed;
-      });
-    }
+    const storedTodos = await loadTodosFromStorage();
+    runInAction(() => {
+      this.todos = storedTodos;
+    });
   }
 
   async saveTodos() {
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(this.todos));
+    await saveTodosToStorage(this.todos);
   }
 
   async addTodo(title: string) {
@@ -40,7 +35,7 @@ class TodoStore {
     const index = this.todos.findIndex(t => t.id === id);
     if (index !== -1) {
       this.todos[index].completed = !this.todos[index].completed;
-      this.todos = [...this.todos]; // Trigger update
+      this.todos = [...this.todos];
       await this.saveTodos();
     }
   }
