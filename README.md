@@ -48,6 +48,12 @@ npx expo start
 | ![Generating](https://github.com/user-attachments/assets/7c27e145-100a-4436-ae31-994d02dfdb03) | ![AI Plan](https://github.com/user-attachments/assets/9b8ba58f-daaf-4b26-939e-adf66348fec1) |
 
 ---
+## 🚶 Walkthrough
+
+🎥 [Watch the demo video on YouTube](https://youtube.com/shorts/3P_m9BFl3uM?si=iPSwDqoOS2ecno1u)
+
+> This short walkthrough demonstrates the key features of the app including task creation, AI plan generation, and reminders.
+---
 
 ## ✅ Completed Features Checklist
 
